@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hemanth Kumar | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: rgba(34, 34, 34, 0.95);
+      color: #fff;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+    header h1 {
+      text-align: center;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      margin-top: 10px;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+    .section {
+      padding: 60px 0;
+    }
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .profile-img {
+      width: 180px;
+      border-radius: 50%;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .about-text p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .skills-list {
+      max-width: 600px;
+      margin: auto;
+    }
+    .skill {
+      margin: 20px 0;
+    }
+    .skill-label {
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    .skill-bar {
+      height: 10px;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: #00bcd4;
+    }
+
+    .project {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .project h3 {
+      color: #00bcd4;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 10px;
+      text-decoration: none;
+      background: #00bcd4;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .contact a:hover {
+      background: #0097a7;
+    }
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Hemanth Kumar</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container about-section">
+      <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>I am a passionate Electronics and Communication Engineering student, specialized in IoT and Embedded Systems. I love developing real-time applications using Arduino, ESP32, and sensors. Currently exploring full-stack web and system integration projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 style="text-align:center;">Skills</h2>
+      <div class="skills-list">
+        <div class="skill">
+          <div class="skill-label">HTML, CSS, JavaScript</div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">Embedded Systems (Arduino, ESP32)</div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">C Programming</div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">Python & IoT Protocols</div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 style="text-align:center;">Projects</h2>
+      <div class="project">
+        <h3>Smart Home Automation</h3>
+        <p>Built a Bluetooth-controlled home automation system using Arduino and relay modules. Controlled fans, bulbs, and appliances using an Android app.</p>
+      </div>
+      <div class="project">
+        <h3>Temperature & Humidity Monitor</h3>
+        <p>Developed an IoT device using ESP32 and DHT11 to measure environmental data and send it to a mobile dashboard (Blynk App).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="container" style="text-align:center;">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:hemanth@example.com">hemanth@example.com</a></p>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      <a href="resume.pdf" download>Download Resume</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hemanth Kumar. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+<script>
+    
+</script>
+</html>
