@@ -1,0 +1,77 @@
+/* classic.css – Styling for Classic Resume Template */
+
+body {
+  font-family: "Georgia", serif;
+  background-color: #ffffff;
+  color: #000000;
+  margin: 40px auto;
+  max-width: 800px;
+  line-height: 1.6;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+h1, h2, h3 {
+  font-family: "Georgia", serif;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+h1 {
+  font-size: 28px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+}
+
+h2 {
+  font-size: 22px;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 3px;
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+p, li {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.header p {
+  font-size: 16px;
+  color: #666;
+}
+
+.contact {
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
