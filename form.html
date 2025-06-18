@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume Builder – Form</title>
+
+  <!-- Default template CSS -->
+  <link id="template-style" rel="stylesheet" href="classic.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .form-preview-container {
+      display: flex;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 20px auto;
+      flex-wrap: wrap;
+    }
+
+    form {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .preview {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      min-height: 400px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #templateName {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Resume Builder – Using <span id="templateName"></span> Template</h1>
+
+  <div class="form-preview-container">
+    <form id="resumeForm">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="summary">Professional Summary</label>
+        <textarea id="summary" name="summary" rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="skills">Skills (comma separated)</label>
+        <input type="text" id="skills" name="skills" />
+      </div>
+
+      <div class="form-group">
+        <label for="experience">Experience</label>
+        <textarea id="experience" name="experience" rows="4"></textarea>
+      </div>
+    </form>
+
+    <div class="preview" id="resume-preview">
+      <h2 id="previewName">Your Name</h2>
+      <p id="previewEmail">your.email@example.com</p>
+      <p id="previewSummary">Your summary will appear here...</p>
+      <h3>Skills</h3>
+      <ul id="previewSkills"></ul>
+      <h3>Experience</h3>
+      <p id="previewExperience"></p>
+      <button onclick="downloadPDF()">Download as PDF</button>
+    </div>
+  </div>
+
+  <!-- Template detection and live update -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const selectedTemplate = params.get("template") || "classic";
+
+    document.getElementById("templateName").textContent =
+      selectedTemplate.charAt(0).toUpperCase() + selectedTemplate.slice(1);
+
+    const cssMap = {
+      classic: "classic.css",
+      modern: "modern.css",
+      compact: "compact.css",
+    };
+    document.getElementById("template-style").href = cssMap[selectedTemplate];
+
+    const resumeForm = document.getElementById("resumeForm");
+    resumeForm.addEventListener("input", () => {
+      document.getElementById("previewName").textContent =
+        document.getElementById("fullName").value || "Your Name";
+      document.getElementById("previewEmail").textContent =
+        document.getElementById("email").value || "your.email@example.com";
+      document.getElementById("previewSummary").textContent =
+        document.getElementById("summary").value || "Your summary will appear here...";
+
+      const skillsRaw = document.getElementById("skills").value;
+      const skillsList = document.getElementById("previewSkills");
+      skillsList.innerHTML = "";
+      if (skillsRaw.trim()) {
+        skillsRaw.split(",").forEach(skill => {
+          const li = document.createElement("li");
+          li.textContent = skill.trim();
+          skillsList.appendChild(li);
+        });
+      }
+
+      document.getElementById("previewExperience").textContent =
+        document.getElementById("experience").value || "";
+    });
+  </script>
+
+  <!-- PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    function downloadPDF() {
+      const element = document.getElementById("resume-preview");
+      const opt = {
+        margin: 0.5,
+        filename: 'my_resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
+</body>
+</html>
