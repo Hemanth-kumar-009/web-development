@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Builder – Select Template</title>
+ 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 30px;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .template-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .template-card {
+      width: 250px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .template-card:hover {
+      transform: scale(1.05);
+    }
+
+    .template-card img {
+      width: 100%;
+      height: 320px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      object-fit: cover;
+    }
+
+    .template-card p {
+      padding: 15px;
+      margin: 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>👋 Welcome to the Resume Builder</h1>
+    <p>Select a template to get started:</p>
+
+    <div class="template-gallery">
+      <div class="template-card" onclick="selectTemplate('template1')">
+        <img src="https://cdn-images.zety.com/templates/zety/valera-11-classic-silver-dark-332@3x.png" alt="Template 1">
+        <p>Classic Template</p>
+      </div>
+
+      <div class="template-card" onclick="selectTemplate('template2')">
+        <img src="https://www.myperfectresume.com/wp-content/themes/myperfectresume/img/resume-templates/color-cat/defaults/free-resume-template-contemporarys.svg" alt="Template 2">
+        <p>Modern Template</p>
+      </div>
+
+      <div class="template-card" onclick="selectTemplate('template3')">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvW4hgY6QXaq57rNLL_EbRprvasC13ju2O_Q&s" alt="Template 3">
+        <p>Compact Template</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function selectTemplate(template) {
+       window.location.href = `form.html?template=${template}`;
+    }
+  </script>
+</body>
+</html>
+
