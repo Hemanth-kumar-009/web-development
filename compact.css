@@ -1,0 +1,56 @@
+/* compact.css – Styling for Compact Resume Template */
+
+body {
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  background: #ffffff;
+  color: #111;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 25px;
+  line-height: 1.4;
+}
+
+h1, h2, h3 {
+  color: #000;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+h1 {
+  font-size: 24px;
+  border-bottom: 1px solid #444;
+}
+
+h2 {
+  font-size: 18px;
+  border-bottom: 1px dashed #aaa;
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.section {
+  margin-bottom: 15px;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 28px;
+}
+
+.contact {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+p, li {
+  font-size: 14px;
+  margin: 4px 0;
+}
